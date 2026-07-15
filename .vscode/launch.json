@@ -1,0 +1,111 @@
+// launch.json — one debug config per CLI command.
+//
+// How this works:
+//  - type: "coreclr"  launches the built .NET dll under the debugger (needs the C# extension).
+//  - program          points at the compiled output of `dotnet build`.
+//  - args             are passed to the program exactly like the `--` part of `dotnet run -- <args>`.
+//  - preLaunchTask    runs the "build" task from tasks.json before every F5, so you never debug stale code.
+//  - cwd              sets the working directory the program runs in.
+//                     The ClientRepository reads ./clients relative to cwd, so this is what makes
+//                     it find demodata/kontado-csharp/clients instead of a clients/ folder next to the code.
+//  - ${workspaceFolder} resolves to the kontado-csharp/ folder (where this launch.json lives).
+//
+//  - console: "internalConsole"  -> output goes to the VS Code Debug Console (no TTY; fine for
+//                                   commands that never prompt).
+//  - console: "integratedTerminal" -> runs in a real VS Code terminal tab (a TTY). REQUIRED for
+//                                     any command that uses Spectre SelectionPrompt / TextPrompt,
+//                                     otherwise: "Cannot show selection prompt since the current
+//                                     terminal isn't interactive."
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "client list",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/bin/Debug/net10.0/kontado-csharp.dll",
+            "args": [ "client", "list" ],
+            "cwd": "${workspaceFolder}/../demodata/kontado-csharp",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "client show volvo",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/bin/Debug/net10.0/kontado-csharp.dll",
+            "args": [ "client", "show", "volvo" ],
+            "cwd": "${workspaceFolder}/../demodata/kontado-csharp",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "client show (pick)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/bin/Debug/net10.0/kontado-csharp.dll",
+            "args": [ "client", "show" ],
+            "cwd": "${workspaceFolder}/../demodata/kontado-csharp",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "client help",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/bin/Debug/net10.0/kontado-csharp.dll",
+            "args": [ "client" ],
+            "cwd": "${workspaceFolder}/../demodata/kontado-csharp",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "client add",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/bin/Debug/net10.0/kontado-csharp.dll",
+            "args": [ "client", "add" ],
+            "cwd": "${workspaceFolder}/../demodata/kontado-csharp",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "project list",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/bin/Debug/net10.0/kontado-csharp.dll",
+            "args": [ "project", "list" ],
+            "cwd": "${workspaceFolder}/../demodata/kontado-csharp",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "project add",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/bin/Debug/net10.0/kontado-csharp.dll",
+            "args": [ "project", "add" ],
+            "cwd": "${workspaceFolder}/../demodata/kontado-csharp",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "greet",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/bin/Debug/net10.0/kontado-csharp.dll",
+            "args": [ "greet", "--name", "Lisa", "--count", "2" ],
+            "cwd": "${workspaceFolder}/../demodata/kontado-csharp",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ]
+}

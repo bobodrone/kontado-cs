@@ -1,0 +1,77 @@
+# ----- .NET / C# -----
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# ----- Visual Studio / VS Code -----
+.vs/
+.idea/
+*.dotCover
+*.swp
+*~
+
+#_dotnet-trace and friends
+*.trace
+
+# ----- Build results -----
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+*.dll
+*.pdb
+*.exe
+*.app
+
+# ----- NuGet -----
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+project.fragment.json
+artifacts/
+
+# ----- Test results -----
+[Tt]est[Rr]esult/
+[Bb]uild[Ll]og.*
+TestResult.xml
+coverage*.json
+coverage*.xml
+coverage*.info
+*.coverage
+*.coveragexml
+
+# ----- OS junk -----
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ----- Secrets -----
+appsettings.Development.json
+appsettings.*.Local.json
+secrets.json
+.env
+.env.*
+!.env.example
+
+# ----- Logs / msbuild -----
+msbuild.log
+msbuild.err
+msbuild.wrn
+*.log

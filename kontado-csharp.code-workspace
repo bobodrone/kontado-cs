@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../demodata/kontado-csharp"
+		}
+	],
+	"settings": {}
+}

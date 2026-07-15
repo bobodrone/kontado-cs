@@ -1,0 +1,24 @@
+// tasks.json — build tasks used by launch.json's "preLaunchTask".
+//
+//  - label "build" is what preLaunchTask: "build" refers to.
+//  - type "process" runs a real command (dotnet) rather than an in-shell command.
+//  - problemMatcher "$msCompile" turns MSBuild warnings/errors into red squiggles in VS Code.
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "${workspaceFolder}/kontado-csharp.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
