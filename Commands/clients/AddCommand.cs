@@ -29,12 +29,10 @@ public static partial class AddCommand
                 return Task.FromResult(1);
             }
 
-            var client = new Client
-            {
-                Id    = repo.NextId(),
-                Name  = name,
-                Label = label,
-            };
+            var client = Client.GetDefaults();
+            client.Id    = repo.NextId();
+            client.Name  = name;
+            client.Label = label;
 
             try
             {

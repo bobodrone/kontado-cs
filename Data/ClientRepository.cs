@@ -12,6 +12,8 @@ public class ClientRepository : YamlStore<Client>
     public Client? GetClient(string name) =>
         LoadAll().Find(c => c.Name == name);
 
-    public void Add(Client client, string slug, bool overwrite = false) =>
+    public void Add(Client client, string slug, bool overwrite = false)
+    {
         Save(slug, client, overwrite);
+    }
 }
